@@ -1,0 +1,9 @@
+C:\dev\Rest.Sql\Rest.Sql\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\Rest.Sql\Rest.Sql\bin\Rest.Sql.dll
+C:\dev\Rest.Sql\Rest.Sql\bin\Rest.Sql.pdb
+C:\dev\Rest.Sql\Rest.Sql\bin\Microsoft.Web.Infrastructure.dll
+C:\dev\Rest.Sql\Rest.Sql\bin\WebActivator.dll
+C:\dev\Rest.Sql\Rest.Sql\obj\Debug\Rest.Sql.dll
+C:\dev\Rest.Sql\Rest.Sql\obj\Debug\Rest.Sql.pdb
+C:\dev\Rest.Sql\Rest.Sql\bin\Rest.Sql.Data.dll
+C:\dev\Rest.Sql\Rest.Sql\bin\Rest.Sql.Data.pdb
