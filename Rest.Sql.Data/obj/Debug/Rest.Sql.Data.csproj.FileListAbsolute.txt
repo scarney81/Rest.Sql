@@ -1,5 +1,0 @@
-C:\dev\Rest.Sql\Rest.Sql.Data\obj\Debug\ResolveAssemblyReference.cache
-C:\dev\Rest.Sql\Rest.Sql.Data\bin\Debug\Rest.Sql.Data.dll
-C:\dev\Rest.Sql\Rest.Sql.Data\bin\Debug\Rest.Sql.Data.pdb
-C:\dev\Rest.Sql\Rest.Sql.Data\obj\Debug\Rest.Sql.Data.dll
-C:\dev\Rest.Sql\Rest.Sql.Data\obj\Debug\Rest.Sql.Data.pdb
