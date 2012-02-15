@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using Rest.Sql.Data;
+using Rest.Sql.Models;
 
 namespace Rest.Sql.Controllers
 {
@@ -9,25 +11,33 @@ namespace Rest.Sql.Controllers
         private const string ConnectionStringName = "SqlStore";
 
         [HttpGet]
-        public JsonResult Index(string table, int pageSize = 25, int page = 1, string where = null, string orderBy = null)
+        public ContentResult Table(string table, QueryModel query)
         {
-            var model = new DynamicModel(ConnectionStringName, table, "Id");
-            var results = model.All(where, orderBy).Skip((page - 1) * pageSize).Take(pageSize);
+            if (string.IsNullOrWhiteSpace(table))
+                return JsonContent("no table specified");
 
-            var response = new
-            {
-                page,
-                pageSize,
-                query = new { table, where, orderBy },
-                results
-            };
+            var page = query.Page ?? 1;
+            var pageSize = query.PageSize ?? 25;
 
-            return JsonGet(response);
+            var model = CreateDynamicModel(table);
+
+            var everything = model.All(query.Where, query.OrderBy);
+            var total = everything.Count();
+            var results = everything.Skip((page - 1) * pageSize).Take(pageSize);
+
+            var response = new {page, pageSize, total, query = new {table, query.Where, query.OrderBy}, results};
+            return JsonContent(response);
         }
 
-        private JsonResult JsonGet(object model)
+        private ContentResult JsonContent(object model)
         {
-            return Json(model, JsonRequestBehavior.AllowGet);
+            var serialized = JsonConvert.SerializeObject(model, Formatting.None);
+            return Content(serialized);
+        }
+
+        private static DynamicModel CreateDynamicModel(string table)
+        {
+            return new DynamicModel(ConnectionStringName, table);
         }
     }
 }

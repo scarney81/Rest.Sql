@@ -27,7 +27,7 @@ namespace Rest.Sql.Startup
             _routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             _routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.([iI][cC][oO]|[gG][iI][fF])(/.*)?" });
 
-            _routes.MapRoute("defaultRoute", "{table}", new { controller = "query", action = "index", table = UrlParameter.Optional });
+            _routes.MapRoute("table", "{table}", new { controller = "query", action = "table", table = UrlParameter.Optional });
         }
     }
 }
