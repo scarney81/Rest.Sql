@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Rest.Sql.Data;
@@ -14,7 +15,7 @@ namespace Rest.Sql.Controllers
         public ContentResult Table(string table, QueryModel query)
         {
             if (string.IsNullOrWhiteSpace(table))
-                return JsonContent("no table specified");
+                throw new HttpException(404, "Table name: " + table + " not found.");
 
             var page = query.Page ?? 1;
             var pageSize = query.PageSize ?? 25;
